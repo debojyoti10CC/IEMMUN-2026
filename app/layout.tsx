@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InteractiveMeshBackground from "@/components/InteractiveMeshBackground";
+import Preloader from "@/components/Preloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,6 +59,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-black text-white selection:bg-accent selection:text-white font-sans isolate">
         <InteractiveMeshBackground />
+        <Preloader />
         <Navbar />
         <main className="flex-grow flex flex-col">
           {children}
