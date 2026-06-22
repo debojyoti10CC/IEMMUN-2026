@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-accent: #C30D0F;
+  --color-accent-hover: #A30A0C;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant-garamond), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background-color: #000000;
+  color: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom scrollbar for premium editorial look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C30D0F;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-sans);
 }
