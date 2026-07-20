@@ -18,10 +18,10 @@ export default function GlobeDemo() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-        className="absolute inset-x-0 -top-8 md:-top-14 bottom-0 z-0 pointer-events-none w-full h-[calc(100%+3.5rem)]"
+        className="absolute inset-x-0 -top-16 md:-top-28 bottom-0 z-0 pointer-events-none w-full h-[calc(100%+7rem)]"
         style={{
-          maskImage: "linear-gradient(to bottom, black 55%, transparent 94%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 94%)",
+          maskImage: "linear-gradient(to bottom, black 65%, transparent 95%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 95%)",
         }}
       >
         <Image
@@ -35,7 +35,7 @@ export default function GlobeDemo() {
       </motion.div>
 
       {/* ─── Hero Content Stack ─── */}
-      <div className="relative z-20 flex flex-col items-center text-center max-w-4xl mx-auto px-5 md:px-6">
+      <div className="relative z-20 flex flex-col items-center text-center max-w-4xl mx-auto px-5 md:px-6 -mt-10 md:-mt-16">
         {/* IEMMUN Logo Emblem above title */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -127,9 +127,6 @@ export default function GlobeDemo() {
           <ChevronDown className="w-3.5 h-3.5 text-zinc-400 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]" />
         </motion.div>
       </motion.div>
-
-      {/* Bottom gradient & blur blend overlay into next section */}
-      <div className="absolute inset-x-0 bottom-0 h-10 md:h-14 bg-gradient-to-t from-white/70 to-transparent backdrop-blur-[2px] pointer-events-none z-10" />
     </section>
   );
 }

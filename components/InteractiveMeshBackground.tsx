@@ -33,7 +33,7 @@ export const InteractiveMeshBackground: React.FC = () => {
 
   return (
     <div
-      className="fixed inset-0 -z-50 pointer-events-none w-full h-screen bg-[#ffffff] select-none overflow-hidden"
+      className="fixed inset-0 -z-50 pointer-events-none w-full h-screen bg-[#f7d4ce] select-none overflow-hidden"
     >
       <div 
         ref={bgRef}
