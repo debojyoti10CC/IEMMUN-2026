@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import paperBg from "../public/paper-bg.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -41,7 +40,7 @@ export const InteractiveMeshBackground: React.FC = () => {
         className="relative w-full h-[250vh] -top-[10vh]"
       >
         <Image
-          src={paperBg}
+          src="/paper-bg.png"
           alt="Crumpled Paper Halftone Background"
           fill
           sizes="100vw"

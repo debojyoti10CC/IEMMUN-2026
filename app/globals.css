@@ -117,3 +117,63 @@ body {
 .border-black\/\[0\.06\] {
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
+
+/* From Uiverse.io by vinodjangid07 - IEMMUN Customized */ 
+.Btn-Container {
+  display: flex;
+  width: 210px;
+  height: 52px;
+  background-color: #C30D0F;
+  border-radius: 40px;
+  box-shadow: 0px 6px 20px rgba(195, 13, 15, 0.4);
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  padding-left: 14px;
+  transition: all 0.3s ease;
+}
+.Btn-Container:hover {
+  background-color: #A30A0C;
+  box-shadow: 0px 8px 25px rgba(195, 13, 15, 0.55);
+  transform: scale(1.03);
+}
+.icon-Container {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #C30D0F;
+  flex-shrink: 0;
+}
+.Btn-Container .btn-text {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.icon-Container svg {
+  transition-duration: 0.4s;
+}
+.Btn-Container:hover .icon-Container svg {
+  animation: uiverse-arrow 0.8s linear infinite;
+}
+@keyframes uiverse-arrow {
+  0% {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(6px);
+  }
+}
