@@ -40,58 +40,54 @@ const evolutionTimeline = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-transparent w-full min-h-screen pt-24 md:pt-32">
-      {/* Editorial Header Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-16 md:mb-24">
-        <div className="max-w-3xl flex flex-col gap-6">
-          <span className="text-2xs font-semibold tracking-[0.25em] text-accent uppercase font-sans">
+    <div className="bg-transparent w-full min-h-screen pt-20 md:pt-32">
+      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-12 md:mb-24">
+        <div className="max-w-3xl flex flex-col gap-4 md:gap-6">
+          <span className="text-[10px] md:text-2xs font-semibold tracking-[0.25em] text-[#C30D0F] uppercase">
             About IEMMUN
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-medium text-white tracking-tight leading-none">
+          <h1 className="text-2xl md:text-6xl font-bold text-white tracking-tight leading-tight md:leading-none">
             Advancing diplomatic education through innovative simulation and academic excellence
           </h1>
         </div>
       </section>
 
-      {/* Grid: Image and Narrative (Mission) */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 pt-16 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
-          <div className="lg:col-span-6 flex flex-col gap-6 bg-white/[0.015] backdrop-blur-[40px] border border-white/[0.08] p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
-            {/* Top edge glare */}
-            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-16 md:mb-28 pt-10 md:pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-6 flex flex-col gap-5 md:gap-6 bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] border border-white/[0.06] p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] relative overflow-hidden">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
 
-            <div className="p-3 bg-white/[0.03] border border-white/[0.05] text-accent w-fit rounded-xl shadow-inner">
-              <Target className="w-5 h-5" />
+            <div className="p-2.5 md:p-3 bg-white/[0.03] border border-white/[0.06] text-[#C30D0F] w-fit rounded-lg md:rounded-xl">
+              <Target className="w-4 h-4 md:w-5 md:h-5" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-serif text-white font-medium">
+            <h2 className="text-xl md:text-3xl font-bold text-white">
               Our Mission
             </h2>
-            <p className="text-sm text-neutral-400 font-sans leading-relaxed">
+            <p className="text-xs md:text-sm text-white/50 leading-relaxed">
               IEMMUN 2026 represents the convergence of academic rigor and diplomatic excellence. We create immersive educational experiences that challenge participants to engage with complex global issues, develop critical thinking capabilities, and cultivate the leadership skills essential for addressing contemporary international challenges.
             </p>
-            <p className="text-sm text-neutral-400 font-sans leading-relaxed">
+            <p className="text-xs md:text-sm text-white/50 leading-relaxed">
               Our commitment extends beyond simulation to fostering genuine understanding of multilateral diplomacy and international relations.
             </p>
           </div>
 
-          <div className="lg:col-span-6 relative w-full aspect-[4/3] lg:aspect-[3/4] border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] p-2 rounded-[2.5rem] shadow-2xl">
-            <div className="relative w-full h-full overflow-hidden rounded-[2rem]">
+          <div className="lg:col-span-6 relative w-full aspect-[4/3] lg:aspect-[3/4] border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] p-1.5 md:p-2 rounded-2xl md:rounded-[2.5rem]">
+            <div className="relative w-full h-full overflow-hidden rounded-xl md:rounded-[2rem]">
               <Image
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200"
                 alt="Diplomacy Session"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover opacity-60 mix-blend-screen saturate-0"
+                className="object-cover opacity-40 mix-blend-screen"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Objectives & Conference Values */}
-      <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-28 pt-16">
-        <div className="text-center mb-12">
+      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-16 md:mb-28 pt-10 md:pt-16">
+        <div className="text-center mb-8 md:mb-12">
           <SectionHeading
             tag="Key Competencies"
             title="Conference Core Pillars"
@@ -100,48 +96,44 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Pillar 1 */}
-          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
-              <Award className="w-5 h-5 text-accent" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+          <div className="p-6 md:p-8 border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] flex flex-col gap-3 md:gap-4 relative overflow-hidden group">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-2.5 md:p-3 bg-white/[0.03] border border-white/[0.06] rounded-lg md:rounded-xl w-fit group-hover:border-[#C30D0F]/30 group-hover:bg-[#C30D0F]/10 transition-colors duration-300">
+              <Award className="w-4 h-4 md:w-5 md:h-5 text-[#C30D0F]" />
             </div>
-            <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Academic Excellence</h4>
-            <p className="text-xs text-neutral-400 leading-relaxed">
+            <h4 className="text-xs md:text-sm font-semibold tracking-wider uppercase text-white mt-1 md:mt-2">Academic Excellence</h4>
+            <p className="text-[11px] md:text-xs text-white/50 leading-relaxed">
               Maintaining the highest standards in diplomatic education through rigorous research, comprehensive preparation, and expert guidance.
             </p>
           </div>
 
-          {/* Pillar 2 */}
-          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
-              <Compass className="w-5 h-5 text-accent" />
+          <div className="p-6 md:p-8 border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] flex flex-col gap-3 md:gap-4 relative overflow-hidden group">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-2.5 md:p-3 bg-white/[0.03] border border-white/[0.06] rounded-lg md:rounded-xl w-fit group-hover:border-[#C30D0F]/30 group-hover:bg-[#C30D0F]/10 transition-colors duration-300">
+              <Compass className="w-4 h-4 md:w-5 md:h-5 text-[#C30D0F]" />
             </div>
-            <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Global Perspective</h4>
-            <p className="text-xs text-neutral-400 leading-relaxed">
+            <h4 className="text-xs md:text-sm font-semibold tracking-wider uppercase text-white mt-1 md:mt-2">Global Perspective</h4>
+            <p className="text-[11px] md:text-xs text-white/50 leading-relaxed">
               Fostering international understanding through diverse representation and comprehensive exploration of global challenges and solutions.
             </p>
           </div>
 
-          {/* Pillar 3 */}
-          <div className="p-8 border border-white/[0.08] bg-white/[0.015] backdrop-blur-[40px] rounded-[2rem] flex flex-col gap-4 font-sans relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="p-3 bg-white/[0.03] border border-white/[0.05] rounded-xl w-fit group-hover:border-accent/50 group-hover:bg-accent/10 transition-colors duration-300">
-              <Shield className="w-5 h-5 text-accent" />
+          <div className="p-6 md:p-8 border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] flex flex-col gap-3 md:gap-4 relative overflow-hidden group sm:col-span-2 lg:col-span-1">
+            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-2.5 md:p-3 bg-white/[0.03] border border-white/[0.06] rounded-lg md:rounded-xl w-fit group-hover:border-[#C30D0F]/30 group-hover:bg-[#C30D0F]/10 transition-colors duration-300">
+              <Shield className="w-4 h-4 md:w-5 md:h-5 text-[#C30D0F]" />
             </div>
-            <h4 className="text-sm font-semibold tracking-wider uppercase text-white mt-2">Leadership Development</h4>
-            <p className="text-xs text-neutral-400 leading-relaxed">
+            <h4 className="text-xs md:text-sm font-semibold tracking-wider uppercase text-white mt-1 md:mt-2">Leadership Development</h4>
+            <p className="text-[11px] md:text-xs text-white/50 leading-relaxed">
               Cultivating the next generation of diplomatic leaders through practical experience in negotiation, consensus-building, and strategic thinking.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Vertical Timeline & Milestones */}
-      <section className="max-w-7xl mx-auto px-6 py-16 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <section className="max-w-7xl mx-auto px-5 md:px-6 py-12 md:py-16 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               tag="Evolution"
@@ -155,7 +147,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Call-to-action */}
       <CTABanner />
     </div>
   );

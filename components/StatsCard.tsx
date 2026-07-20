@@ -8,17 +8,14 @@ interface StatsCardProps {
 
 export const StatsCard: React.FC<StatsCardProps> = ({ value, label, description }) => {
   return (
-    <div className="bg-white/[0.015] border border-white/[0.08] backdrop-blur-[40px] rounded-[2rem] p-8 md:p-10 flex flex-col gap-3 group shadow-xl relative overflow-hidden transition-all duration-500 hover:border-white/[0.15] hover:bg-white/[0.03]">
-      {/* Subtle top edge glare */}
-      <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      <span className="text-4xl md:text-5xl font-sans font-bold text-white group-hover:text-accent transition-colors drop-shadow-md tracking-tighter">
+    <div className="p-6 md:p-8 lg:p-10 flex flex-col items-center text-center gap-1.5 md:gap-2 group transition-all duration-300 hover:bg-black/[0.01]">
+      <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-900 tracking-tight">
         {value}
       </span>
-      <h4 className="text-xs font-bold tracking-[0.25em] text-white/50 uppercase font-sans mt-2">
+      <h4 className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-[#C30D0F] uppercase mt-0.5">
         {label}
       </h4>
-      <p className="text-xs md:text-sm text-white/60 font-sans leading-relaxed mt-1">
+      <p className="text-[10px] md:text-xs text-zinc-500 leading-relaxed max-w-[200px] mt-0.5">
         {description}
       </p>
     </div>

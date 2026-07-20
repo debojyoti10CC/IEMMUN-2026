@@ -1,83 +1,54 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import Image from "next/image";
+import paperBg from "../public/paper-bg.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export const InteractiveMeshBackground: React.FC = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const bgRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  if (!mounted) return null;
+  useGSAP(() => {
+    if (bgRef.current) {
+      gsap.fromTo(bgRef.current,
+        { y: "0px" },
+        {
+          y: "-140vh", // Translate the remaining scroll height
+          ease: "none",
+          scrollTrigger: {
+            trigger: "body",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.8,
+          },
+        }
+      );
+    }
+  });
 
   return (
-    <div 
-      ref={containerRef}
-      className="fixed inset-0 -z-50 pointer-events-none w-full h-full bg-[#030000] overflow-hidden"
+    <div
+      className="fixed inset-0 -z-50 pointer-events-none w-full h-screen bg-[#ffffff] select-none overflow-hidden"
     >
-      {/* Apple Aurora Liquid Mesh Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
-        
-        {/* Massive Ambient Slow-Moving Background Orbs */}
-        <motion.div
-          animate={{
-            rotate: [0, 180, 360],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -top-40 -left-40 w-[1200px] h-[1200px] bg-[#3a0002] rounded-full filter blur-[200px] md:blur-[300px] opacity-60 mix-blend-screen origin-center"
+      <div 
+        ref={bgRef}
+        className="relative w-full h-[250vh] -top-[10vh]"
+      >
+        <Image
+          src={paperBg}
+          alt="Crumpled Paper Halftone Background"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.35] mix-blend-multiply"
+          priority
         />
-
-        <motion.div
-          animate={{
-            rotate: [360, 180, 0],
-            scale: [1, 1.3, 1],
-            x: [0, 200, 0],
-          }}
-          transition={{
-            duration: 50,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/3 -right-20 w-[1400px] h-[1400px] bg-[#2a0000] rounded-full filter blur-[200px] md:blur-[300px] opacity-70 mix-blend-screen origin-center"
-        />
-
-        {/* Core Red Orb following mouse smoothly (reduced opacity for subtle glass bleed) */}
-        <motion.div
-          animate={{
-            x: mousePosition.x - 600,
-            y: mousePosition.y - 600,
-          }}
-          transition={{ type: "spring", damping: 60, stiffness: 30, mass: 1 }}
-          className="absolute top-0 left-0 w-[1200px] h-[1200px] bg-[#9a0005] rounded-full filter blur-[250px] opacity-30 mix-blend-screen"
-        />
-
       </div>
-
-      {/* Noise Texture for cinematic grain - Apple aesthetic often uses extremely subtle noise */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.25] mix-blend-overlay pointer-events-none" />
-
-      {/* Edge Gradients / Vignette - Dark Only */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.85)_120%)] pointer-events-none" />
     </div>
   );
 };

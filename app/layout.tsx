@@ -63,8 +63,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans isolate">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <InteractiveMeshBackground />

@@ -6,17 +6,17 @@ interface BadgeProps {
 }
 
 export const Badge: React.FC<BadgeProps> = ({ type, className = "" }) => {
-  let badgeStyles = "inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase border backdrop-blur-xl font-sans transition-colors duration-300";
+  let badgeStyles = "inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-bold tracking-[0.25em] uppercase border transition-colors duration-300";
 
   switch (type) {
     case "Novice":
-      badgeStyles += " bg-emerald-500/[0.05] text-emerald-400 border-emerald-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]";
+      badgeStyles += " bg-emerald-50 text-emerald-700 border-emerald-200";
       break;
     case "Intermediate":
-      badgeStyles += " bg-amber-500/[0.05] text-amber-400 border-amber-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]";
+      badgeStyles += " bg-amber-50 text-amber-700 border-amber-200";
       break;
     case "Advanced":
-      badgeStyles += " bg-red-500/[0.05] text-red-400 border-red-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]";
+      badgeStyles += " bg-red-50 text-red-700 border-red-200";
       break;
   }
 
