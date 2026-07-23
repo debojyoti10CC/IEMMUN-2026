@@ -147,6 +147,7 @@ export const committees: Committee[] = [
     agenda: "Reforming Dispute Settlement Mechanisms and Digital Trade Tariffs",
     difficulty: "Intermediate",
     image: "/Committees/WTO.png",
+    cardBg: "/wto-bg.jpg",
     type: "Online",
     overview: "The World Trade Organization regulates global commerce. This online chamber handles the modern rules of digital markets, cross-border data flows, and judicial reform of the appellate body.",
     detailedAgenda: "The WTO appellate division faces structural vacancies, blocking the resolution of major trade disputes. Concurrently, the moratorium on customs duties on electronic transmissions is expiring. Delegates will negotiate reforms to restore dispute resolution and create new rules for e-commerce tariffs.",
