@@ -11,6 +11,7 @@ export interface Committee {
   agenda: string;
   difficulty: "Novice" | "Intermediate" | "Advanced";
   image: string;
+  cardBg?: string;
   type: "Offline" | "Online";
   overview: string;
   detailedAgenda: string;
@@ -28,6 +29,7 @@ export const committees: Committee[] = [
     agenda: "The Militarization of Low Earth Orbit and Anti-Satellite Weaponry",
     difficulty: "Intermediate",
     image: "/Committees/DISEC.png",
+    cardBg: "/disec-bg.jpg",
     type: "Offline",
     overview: "As the First Committee of the General Assembly, DISEC deals with disarmament, global challenges, and threats to peace. This session centers on space security, focusing on preventing an arms race in outer space (PAROS) and establishing protocols for orbital asset protection.",
     detailedAgenda: "The reliance on orbital assets for communications, navigation, and defense has turned Low Earth Orbit (LEO) into a highly contested strategic front. The testing of anti-satellite (ASAT) weapons poses massive debris threats (Kessler Syndrome), endangering both peaceful space exploration and global infrastructure. Delegates will debate treaty updates to prevent space weaponization and create regulatory regimes for dual-use satellites.",
@@ -52,6 +54,7 @@ export const committees: Committee[] = [
     agenda: "Ensuring Female Representation in Transitional Governance and Post-Conflict Reconstruction",
     difficulty: "Intermediate",
     image: "/Committees/CSW.png",
+    cardBg: "/csw-bg.jpg",
     type: "Offline",
     overview: "The CSW is the principal global intergovernmental body dedicated to the promotion of gender equality and the empowerment of women. This session focuses on securing women's systemic involvement in drafting new constitutions and managing post-war judicial transitions.",
     detailedAgenda: "Despite evidence showing peace agreements are more durable when women are involved in negotiations, women continue to be excluded from formal transitional authorities and reconstruction tables. The Commission will address constitutional quotas, financial aid tied to gender equity in governance, and mechanisms to prosecute gender-based violence during transitions.",
@@ -75,6 +78,7 @@ export const committees: Committee[] = [
     agenda: "Journalistic Neutrality and Information Warfare in Combat Zones",
     difficulty: "Novice",
     image: "/Committees/IP.png",
+    cardBg: "/ip-bg.jpg",
     type: "Offline",
     overview: "The International Press acts as the media coverage engine of IEMMUN 2026. Reporters will monitor other chambers, conduct press conferences, draft opinion pieces, and analyze the psychological dimension of information distribution.",
     detailedAgenda: "In modern warfare, information is as strategic as physical ammunition. The IP will investigate how media houses navigate censorship, state-sponsored propaganda, deepfakes, and coordinate ethical reporting in highly hostile territories.",

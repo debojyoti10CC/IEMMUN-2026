@@ -33,7 +33,7 @@ export const InteractiveMeshBackground: React.FC = () => {
 
   return (
     <div
-      className="fixed inset-0 -z-50 pointer-events-none w-full h-screen bg-[#f7d4ce] select-none overflow-hidden"
+      className="fixed inset-0 -z-10 pointer-events-none w-full h-screen bg-[#f7d4ce] select-none overflow-hidden"
     >
       <div 
         ref={bgRef}
@@ -44,7 +44,8 @@ export const InteractiveMeshBackground: React.FC = () => {
           alt="Crumpled Paper Halftone Background"
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.35] mix-blend-multiply"
+          unoptimized
+          className="object-cover opacity-70 mix-blend-multiply"
           priority
         />
       </div>

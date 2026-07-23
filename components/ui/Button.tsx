@@ -13,7 +13,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     let variantStyles = "";
     switch (variant) {
       case "primary":
-        variantStyles = "bg-gradient-red text-neutral-50 hover:brightness-110 active:scale-[0.98] border border-transparent";
+        variantStyles = "bg-[#C30D0F] text-white hover:bg-[#A30A0C] shadow-[0_4px_20px_rgba(195,13,15,0.35)] hover:shadow-[0_6px_25px_rgba(195,13,15,0.55)] active:scale-[0.98] border border-transparent";
         break;
       case "secondary":
         variantStyles = "bg-white/[0.06] text-white border border-white/[0.06] hover:bg-white/[0.1] active:scale-[0.98]";

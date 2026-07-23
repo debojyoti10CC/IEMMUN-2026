@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CommitteeCard from "@/components/CommitteeCard";
+import CTABanner from "@/components/CTABanner";
 import { committees } from "@/data/committees";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, ShieldAlert, Globe2 } from "lucide-react";
 
 type DifficultyFilter = "All" | "Novice" | "Intermediate" | "Advanced";
 
@@ -27,49 +28,51 @@ export default function CommitteesIndexPage() {
   const onlineCommittees = filteredCommittees.filter((c) => c.type === "Online");
 
   return (
-    <div className="bg-transparent w-full min-h-screen pt-20 md:pt-32">
-      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-8 md:mb-12">
+    <div className="bg-transparent w-full min-h-screen">
+      {/* Hero Intro Header */}
+      <section className="max-w-7xl mx-auto px-5 md:px-6 pt-28 md:pt-40 pb-10 md:pb-16">
         <div className="max-w-3xl flex flex-col gap-4 md:gap-6">
-          <span className="text-[10px] md:text-2xs font-semibold tracking-[0.25em] text-[#C30D0F] uppercase">
+          <span className="inline-flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-[0.3em] text-[#C30D0F] uppercase">
+            <span className="w-5 h-[1.5px] bg-[#C30D0F] inline-block" />
             Our Chambers
           </span>
-          <h1 className="text-2xl md:text-6xl font-bold text-white tracking-tight leading-tight md:leading-none">
-            Committees & Agendas
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-950 tracking-tight leading-tight">
+            Committees & <span className="text-zinc-500">Agendas</span>
           </h1>
-          <p className="text-xs md:text-lg text-white/50 leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-700 font-medium leading-relaxed">
             Discover the parliamentary councils, crisis rooms, and specialized panels simulated at IEMMUN 2026. Select a chamber to view portfolios and executive rosters.
           </p>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-8 md:mb-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 p-3 md:p-4 border border-white/[0.06] bg-white/[0.02] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] relative overflow-hidden">
-          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-
+      {/* Search & Filter Bar */}
+      <section className="max-w-7xl mx-auto px-5 md:px-6 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-black/10 bg-white/60 backdrop-blur-xl rounded-2xl md:rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+          
           <div className="relative flex-1 max-w-full md:max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 md:w-4 md:h-4 text-white/40" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
             <input
               type="text"
-              placeholder="Search by name or agenda..."
+              placeholder="Search committee or agenda..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 md:py-3 bg-black/40 border border-white/[0.06] rounded-full text-[11px] md:text-xs text-white focus:outline-none focus:border-white/20 focus:bg-black/60 transition-all placeholder:text-white/40"
+              className="w-full pl-11 pr-4 py-3 bg-white/80 border border-black/10 rounded-full text-xs text-zinc-900 focus:outline-none focus:border-[#C30D0F] focus:bg-white transition-all placeholder:text-zinc-500 font-medium shadow-sm"
             />
           </div>
 
-          <div className="flex flex-wrap items-center gap-1 md:gap-1.5 overflow-x-auto">
-            <span className="text-[8px] md:text-[10px] font-bold tracking-wider text-white/40 uppercase flex items-center gap-1 mr-1 md:mr-2 shrink-0">
-              <Filter className="w-3 h-3" />
-              <span className="hidden md:inline">Difficulty:</span>
+          <div className="flex flex-wrap items-center gap-1.5 overflow-x-auto pt-1 md:pt-0">
+            <span className="text-[10px] font-bold tracking-wider text-zinc-600 uppercase flex items-center gap-1 mr-2 shrink-0">
+              <Filter className="w-3.5 h-3.5 text-[#C30D0F]" />
+              <span>Level:</span>
             </span>
             {(["All", "Novice", "Intermediate", "Advanced"] as DifficultyFilter[]).map((diff) => (
               <button
                 key={diff}
                 onClick={() => setSelectedDifficulty(diff)}
-                className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase border transition-all duration-300 cursor-pointer backdrop-blur-md shrink-0 ${
+                className={`px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase border transition-all duration-300 cursor-pointer shrink-0 ${
                   selectedDifficulty === diff
-                    ? "bg-white/10 border-white/20 text-white"
-                    : "bg-transparent border-transparent text-white/50 hover:bg-white/[0.04] hover:text-white"
+                    ? "bg-[#C30D0F] border-[#C30D0F] text-white shadow-sm"
+                    : "bg-white/70 border-black/10 text-zinc-700 hover:bg-white hover:text-zinc-900"
                 }`}
               >
                 {diff}
@@ -79,18 +82,24 @@ export default function CommitteesIndexPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-5 md:px-6 pb-16 md:pb-24 flex flex-col gap-12 md:gap-16">
+      {/* Committee Grid Content */}
+      <section className="max-w-7xl mx-auto px-5 md:px-6 pb-20 md:pb-28 flex flex-col gap-14 md:gap-20">
         {filteredCommittees.length > 0 ? (
           <>
             {offlineCommittees.length > 0 && (
-              <div className="flex flex-col gap-5 md:gap-8">
-                <div className="border-b border-white/[0.06] pb-3 md:pb-4">
-                  <h2 className="text-lg md:text-2xl font-bold text-white flex items-center gap-2 md:gap-3">
-                    <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#C30D0F]" />
+              <div className="flex flex-col gap-6 md:gap-8">
+                <div className="border-b border-black/10 pb-4 flex items-center justify-between">
+                  <h2 className="text-xl md:text-2xl font-bold text-zinc-950 flex items-center gap-3">
+                    <span className="p-1.5 rounded-lg bg-[#C30D0F]/10 border border-[#C30D0F]/20 text-[#C30D0F]">
+                      <ShieldAlert className="w-4 h-4" />
+                    </span>
                     Offline Committees
                   </h2>
+                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                    {offlineCommittees.length} {offlineCommittees.length === 1 ? "Chamber" : "Chambers"}
+                  </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {offlineCommittees.map((committee) => (
                     <CommitteeCard
                       key={committee.id}
@@ -100,6 +109,7 @@ export default function CommitteesIndexPage() {
                       agenda={committee.agenda}
                       difficulty={committee.difficulty}
                       image={committee.image}
+                      cardBg={committee.cardBg}
                     />
                   ))}
                 </div>
@@ -107,14 +117,19 @@ export default function CommitteesIndexPage() {
             )}
 
             {onlineCommittees.length > 0 && (
-              <div className="flex flex-col gap-5 md:gap-8">
-                <div className="border-b border-white/[0.06] pb-3 md:pb-4">
-                  <h2 className="text-lg md:text-2xl font-bold text-white flex items-center gap-2 md:gap-3">
-                    <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/40" />
+              <div className="flex flex-col gap-6 md:gap-8">
+                <div className="border-b border-black/10 pb-4 flex items-center justify-between">
+                  <h2 className="text-xl md:text-2xl font-bold text-zinc-950 flex items-center gap-3">
+                    <span className="p-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-600">
+                      <Globe2 className="w-4 h-4" />
+                    </span>
                     Online Committees
                   </h2>
+                  <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                    {onlineCommittees.length} {onlineCommittees.length === 1 ? "Chamber" : "Chambers"}
+                  </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {onlineCommittees.map((committee) => (
                     <CommitteeCard
                       key={committee.id}
@@ -124,6 +139,7 @@ export default function CommitteesIndexPage() {
                       agenda={committee.agenda}
                       difficulty={committee.difficulty}
                       image={committee.image}
+                      cardBg={committee.cardBg}
                     />
                   ))}
                 </div>
@@ -131,12 +147,13 @@ export default function CommitteesIndexPage() {
             )}
           </>
         ) : (
-          <div className="text-center py-16 md:py-20 border border-white/[0.06] bg-white/[0.02] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] max-w-3xl mx-auto w-full px-5 md:px-6 relative overflow-hidden">
-            <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-            <span className="text-xs text-white/50 tracking-wider">No committees match your search filters. Please adjust the settings.</span>
+          <div className="text-center py-16 md:py-20 border border-black/10 bg-white/60 backdrop-blur-xl rounded-2xl md:rounded-[2rem] max-w-2xl mx-auto w-full px-6 shadow-sm">
+            <span className="text-sm font-semibold text-zinc-700">No committees match your search filters. Try clearing the search or selecting "All".</span>
           </div>
         )}
       </section>
+
+      <CTABanner />
     </div>
   );
 }

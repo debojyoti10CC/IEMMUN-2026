@@ -34,7 +34,7 @@ export const CTABanner: React.FC = () => {
         <div ref={marqueeRef} className="absolute inset-0 flex items-center whitespace-nowrap opacity-[0.04] pointer-events-none overflow-hidden select-none z-0">
           <div className="marquee-content flex gap-8">
             {[...Array(6)].map((_, i) => (
-              <span key={i} className="text-[8rem] md:text-[12rem] font-bold text-white uppercase tracking-tighter">
+              <span key={i} className="text-[8rem] md:text-[12rem] font-bold text-black uppercase tracking-tighter">
                 DIPLOMACY • LEADERSHIP • DEBATE • GLOBAL IMPACT •
               </span>
             ))}
@@ -42,31 +42,30 @@ export const CTABanner: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-7xl w-full mx-auto px-6 relative z-10 flex justify-center">
-        <div className="border border-white/[0.08] bg-white/[0.02] backdrop-blur-md md:backdrop-blur-[40px] p-8 md:p-16 flex flex-col items-center text-center gap-6 md:gap-8 rounded-xl max-w-4xl w-full relative overflow-hidden">
-          <div className="absolute inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+      <div className="max-w-7xl w-full mx-auto px-5 md:px-6 relative z-10 flex justify-center">
+        <div className="border border-black/15 border-t-[#C30D0F] bg-white/50 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.05)] p-8 md:p-14 flex flex-col items-center text-center gap-6 md:gap-8 rounded-xl md:rounded-2xl max-w-4xl w-full relative overflow-hidden ring-1 ring-inset ring-black/5">
 
           <div className="flex flex-col items-center gap-3 md:gap-4 relative z-10">
-            <span className="text-[10px] font-semibold tracking-[0.25em] text-[#C30D0F] uppercase">
+            <span className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-[#C30D0F] uppercase">
               Apply Now
             </span>
-            <h2 className="text-2xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-zinc-950 tracking-tight leading-tight">
               Shape the Future of Diplomatic Dialogue
             </h2>
-            <p className="text-xs md:text-base text-[#5e5d5c] leading-relaxed max-w-2xl">
+            <p className="text-xs md:text-base text-zinc-600 leading-relaxed max-w-xl font-normal">
               Institutional registrations and individual delegate applications are open. Secure your place at the most prestigious simulation of the year.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto shrink-0 mt-1 md:mt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full sm:w-auto shrink-0 mt-1 z-10">
             <Link href="/committees" className="w-full sm:w-auto">
-              <Button variant="primary" className="w-full gap-2 px-6 md:px-8 py-4 md:py-6 text-[10px] md:text-xs uppercase tracking-widest font-bold">
+              <Button variant="primary" className="w-full gap-2 px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs uppercase tracking-widest font-bold bg-[#C30D0F] text-white hover:bg-[#A30A0C] border border-[#C30D0F] rounded-lg md:rounded-xl shadow-md">
                 Register Delegation
-                <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
               </Button>
             </Link>
             <Link href="/contact" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full border-white/20 text-white hover:border-white hover:bg-white/5 px-6 md:px-8 py-4 md:py-6 text-[10px] md:text-xs uppercase tracking-widest font-bold">
+              <Button variant="outline" className="w-full border-black/20 text-zinc-900 hover:border-black/40 hover:bg-black/5 px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs uppercase tracking-widest font-bold rounded-lg md:rounded-xl">
                 Contact Secretariat
               </Button>
             </Link>

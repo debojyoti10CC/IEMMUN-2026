@@ -59,6 +59,7 @@ export const Navbar: React.FC = () => {
                   fill
                   sizes="32px"
                   className="object-contain"
+                  style={{ filter: "invert(0.12) sepia(0.1) saturate(3) hue-rotate(345deg) brightness(0.45)" }}
                   priority
                 />
               </div>

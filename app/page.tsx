@@ -139,6 +139,7 @@ export default function Home() {
               agenda={committee.agenda}
               difficulty={committee.difficulty}
               image={committee.image}
+              cardBg={committee.cardBg}
             />
           ))}
         </div>

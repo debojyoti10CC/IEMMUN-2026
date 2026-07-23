@@ -15,17 +15,17 @@
 }
 
 :root {
-  --bg-color: #ffffff;
+  --bg-color: transparent;
   --fg-color: #18181b;
   --card-color: #fafafa;
   --muted-color: #71717a;
   --border-color: rgba(24, 24, 27, 0.08);
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--fg-color);
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--fg-color);
   font-family: var(--font-sans);
 }
@@ -53,70 +53,7 @@ body {
   color: #ffffff;
 }
 
-/* Light mode overrides for built-in white/black classes */
-.text-white {
-  color: #18181b !important;
-}
-.text-white\/80 {
-  color: rgba(24, 24, 27, 0.8) !important;
-}
-.text-white\/75 {
-  color: rgba(24, 24, 27, 0.75) !important;
-}
-.text-white\/70 {
-  color: rgba(24, 24, 27, 0.7) !important;
-}
-.text-white\/50 {
-  color: rgba(24, 24, 27, 0.5) !important;
-}
-.text-white\/40 {
-  color: rgba(24, 24, 27, 0.4) !important;
-}
-.text-white\/30 {
-  color: rgba(24, 24, 27, 0.3) !important;
-}
-.text-white\/20 {
-  color: rgba(24, 24, 27, 0.2) !important;
-}
-.border-white\/\[0\.06\] {
-  border-color: rgba(24, 24, 27, 0.08) !important;
-}
-.border-white\/\[0\.08\] {
-  border-color: rgba(24, 24, 27, 0.1) !important;
-}
-.border-white\/\[0\.12\] {
-  border-color: rgba(24, 24, 27, 0.15) !important;
-}
-.border-white\/20 {
-  border-color: rgba(24, 24, 27, 0.2) !important;
-}
-.bg-white\/\[0\.02\] {
-  background-color: rgba(24, 24, 27, 0.02) !important;
-}
-.bg-white\/\[0\.015\] {
-  background-color: rgba(24, 24, 27, 0.015) !important;
-}
-.bg-white\/\[0\.01\] {
-  background-color: rgba(24, 24, 27, 0.01) !important;
-}
-.bg-white\/\[0\.03\] {
-  background-color: rgba(24, 24, 27, 0.03) !important;
-}
-.bg-white\/5 {
-  background-color: rgba(24, 24, 27, 0.05) !important;
-}
-.bg-black\/85 {
-  background-color: rgba(255, 255, 255, 0.85) !important;
-}
-.bg-black\/95 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-.bg-black {
-  background-color: #ffffff !important;
-}
-.border-black\/\[0\.06\] {
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
+
 
 /* From Uiverse.io by vinodjangid07 - IEMMUN Customized */ 
 .Btn-Container {

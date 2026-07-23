@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { committees } from "@/data/committees";
 import { Badge } from "@/components/ui/Badge";
-import { ArrowLeft, Download, FileText, Globe } from "lucide-react";
+import CTABanner from "@/components/CTABanner";
+import { ArrowLeft, Download, FileText, Globe, UserCheck, Shield } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -26,94 +27,116 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
 
   return (
     <div className="bg-transparent w-full min-h-screen">
-      <section className="relative w-full min-h-[30vh] md:min-h-[40vh] flex items-end bg-gradient-to-b from-black via-[#0a0a0a] to-black border-b border-white/[0.06] pt-24 md:pt-32 pb-8 md:pb-12">
-        <div className="absolute inset-0 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none" />
+      {/* Hero Banner Header */}
+      <section className="relative w-full pt-28 md:pt-40 pb-12 md:pb-16 border-b border-black/10 overflow-hidden bg-transparent">
+        {committee.cardBg && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20 select-none">
+            <Image
+              src={committee.cardBg}
+              alt=""
+              fill
+              unoptimized
+              className="object-cover filter blur-[2px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f7d4ce]/50 to-[#f7d4ce]" />
+          </div>
+        )}
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
-          <div className="flex flex-col items-start gap-3 md:gap-4">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
+          <div className="flex flex-col items-start gap-4 max-w-4xl">
             <Link
               href="/committees"
-              className="inline-flex items-center gap-1.5 md:gap-2 text-[9px] md:text-2xs uppercase tracking-wider text-white/50 hover:text-white transition-colors mb-1 md:mb-2"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-700 hover:text-[#C30D0F] transition-colors"
             >
-              <ArrowLeft className="w-3 h-3 md:w-3.5 md:h-3.5" />
+              <ArrowLeft className="w-4 h-4" />
               Back to Chambers
             </Link>
 
-            <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap">
               <Badge type={committee.difficulty} />
-              <span className="text-[8px] md:text-[10px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-white/50 uppercase bg-white/[0.03] px-2.5 md:px-3 py-1 rounded-full border border-white/[0.06] backdrop-blur-md">
-                {committee.difficulty} Level
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#C30D0F] uppercase bg-[#C30D0F]/10 border border-[#C30D0F]/20 px-3 py-1 rounded-full">
+                {committee.difficulty} Chamber
+              </span>
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-zinc-600 uppercase bg-white/60 border border-black/10 px-3 py-1 rounded-full shadow-sm">
+                {committee.type} Session
               </span>
             </div>
 
-            <h1 className="text-xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight max-w-4xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-950 tracking-tight leading-tight">
               {committee.name}
             </h1>
           </div>
 
-          <div className="relative w-16 h-16 md:w-32 md:h-32 flex-shrink-0 bg-white/[0.015] p-2 md:p-4 border border-white/[0.06] rounded-xl md:rounded-[2rem] backdrop-blur-md md:backdrop-blur-[40px] flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-x-4 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
+          <div className="relative w-24 h-24 md:w-36 md:h-36 flex-shrink-0 bg-white/80 border border-black/10 p-3 md:p-4 rounded-2xl md:rounded-[2rem] shadow-md backdrop-blur-xl flex items-center justify-center overflow-hidden">
             <div className="relative w-full h-full">
               <Image
                 src={committee.image}
                 alt={committee.name}
                 fill
                 priority
-                sizes="(max-width: 768px) 64px, 128px"
-                className="object-contain p-1"
+                sizes="(max-width: 768px) 96px, 144px"
+                className="object-contain p-1 filter brightness-0"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-5 md:px-6 py-10 md:py-24">
+      {/* Main Content Details */}
+      <section className="max-w-7xl mx-auto px-5 md:px-6 py-12 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-8 flex flex-col gap-8 md:gap-12">
+          
+          {/* Main Column */}
+          <div className="lg:col-span-8 flex flex-col gap-10 md:gap-14">
 
-            <div className="flex flex-col gap-3 md:gap-4">
-              <h2 className="text-lg md:text-2xl font-bold text-white border-b border-white/[0.06] pb-2 md:pb-3">
+            {/* Overview */}
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xl md:text-3xl font-bold text-zinc-950 border-b border-black/10 pb-3 flex items-center gap-3">
+                <span className="p-1.5 rounded-lg bg-[#C30D0F]/10 text-[#C30D0F]">
+                  <Shield className="w-5 h-5" />
+                </span>
                 Chamber Overview
               </h2>
-              <p className="text-xs md:text-base text-white/50 leading-relaxed">
+              <p className="text-sm md:text-base text-zinc-800 font-normal leading-relaxed">
                 {committee.overview}
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 md:gap-4">
-              <h2 className="text-lg md:text-2xl font-bold text-white border-b border-white/[0.06] pb-2 md:pb-3">
+            {/* Agenda */}
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xl md:text-3xl font-bold text-zinc-950 border-b border-black/10 pb-3">
                 Agenda Focus & Context
               </h2>
-              <p className="text-xs md:text-base text-white/50 leading-relaxed">
+              <p className="text-sm md:text-base text-zinc-800 font-normal leading-relaxed">
                 {committee.detailedAgenda}
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 md:gap-4">
-              <h2 className="text-lg md:text-2xl font-bold text-white border-b border-white/[0.06] pb-2 md:pb-3">
+            {/* Matrix */}
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xl md:text-3xl font-bold text-zinc-950 border-b border-black/10 pb-3">
                 Portfolio Allocation Matrix
               </h2>
-              <p className="text-[10px] md:text-sm text-white/50 mb-1 md:mb-2">
+              <p className="text-xs md:text-sm text-zinc-600 font-medium">
                 The portfolios listed below are active for IEMMUN 2026. Country allocations will occur upon registration validation.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                 <a
                   href={committee.backgroundGuideUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3 md:p-4 border border-white/[0.06] bg-white/[0.015] hover:bg-white/[0.03] hover:border-white/[0.12] backdrop-blur-md md:backdrop-blur-xl rounded-xl md:rounded-[1.5rem] transition-all flex items-center gap-2 md:gap-3 text-[9px] md:text-xs font-bold tracking-widest uppercase text-white/60 relative overflow-hidden group col-span-2 sm:col-span-3 md:col-span-1"
+                  className="p-3.5 md:p-4 border border-[#C30D0F]/30 bg-[#C30D0F]/[0.06] hover:bg-[#C30D0F]/10 rounded-xl md:rounded-2xl transition-all flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-[#C30D0F] col-span-2 sm:col-span-3 md:col-span-1 shadow-sm"
                 >
-                  <div className="absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <FileText className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#C30D0F] shrink-0" />
+                  <FileText className="w-4 h-4 text-[#C30D0F] shrink-0" />
                   <span>Background Guide</span>
                 </a>
                 {committee.portfolioMatrix.map((portfolio, idx) => (
                   <div
                     key={idx}
-                    className="p-2.5 md:p-3 border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] transition-colors flex items-center gap-1.5 md:gap-2 text-[10px] md:text-xs text-white/60 rounded-lg md:rounded-xl"
+                    className="p-3 border border-black/10 bg-white/70 hover:border-black/25 transition-all flex items-center gap-2 text-xs font-semibold text-zinc-900 rounded-xl shadow-sm"
                   >
-                    <Globe className="w-3 h-3 md:w-3.5 md:h-3.5 text-white/40 shrink-0" />
+                    <Globe className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
                     <span className="truncate">{portfolio}</span>
                   </div>
                 ))}
@@ -122,71 +145,80 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
 
           </div>
 
-          <div className="lg:col-span-4 lg:sticky lg:top-28 flex flex-col gap-5 md:gap-8">
+          {/* Sidebar Column */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32 flex flex-col gap-6">
 
-            <div className="p-5 md:p-8 border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] relative overflow-hidden transition-all duration-500 hover:border-white/[0.12]">
-              <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-              <h2 className="text-lg md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
-                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#C30D0F]" />
+            {/* Executive Board Card */}
+            <div className="p-6 md:p-8 border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm rounded-2xl md:rounded-[2rem] flex flex-col gap-4">
+              <h3 className="text-lg md:text-xl font-bold text-zinc-950 flex items-center gap-2 pb-3 border-b border-black/10">
+                <UserCheck className="w-5 h-5 text-[#C30D0F]" />
                 Executive Board
-              </h2>
-              <div className="flex flex-col gap-3 md:gap-4 mt-2 md:mt-4">
+              </h3>
+              <div className="flex flex-col gap-4 pt-1">
                 {committee.executiveBoard.map((member, idx) => (
-                  <div key={idx} className="flex flex-col">
-                    <span className="text-xs md:text-sm font-medium text-white">{member.name}</span>
-                    <span className="text-[9px] md:text-2xs text-[#C30D0F] uppercase tracking-wider mt-0.5">{member.role}</span>
+                  <div key={idx} className="flex flex-col gap-0.5">
+                    <span className="text-sm md:text-base font-bold text-zinc-950">{member.name}</span>
+                    <span className="text-xs text-[#C30D0F] font-bold uppercase tracking-wider">{member.role}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="p-5 md:p-8 border border-white/[0.06] bg-white/[0.015] backdrop-blur-md md:backdrop-blur-[40px] rounded-2xl md:rounded-[2rem] relative overflow-hidden transition-all duration-500 hover:border-white/[0.12]">
-              <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none" />
-              <h2 className="text-lg md:text-2xl font-bold text-white mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/40" />
+            {/* Study Guides Card */}
+            <div className="p-6 md:p-8 border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm rounded-2xl md:rounded-[2rem] flex flex-col gap-4">
+              <h3 className="text-lg md:text-xl font-bold text-zinc-950 pb-3 border-b border-black/10">
                 Dossier & Study Guides
-              </h2>
+              </h3>
 
-              <div className="flex flex-col gap-3 md:gap-4 mt-4 md:mt-6">
-                <div className="flex flex-col gap-2 md:gap-3 p-4 md:p-5 bg-white/[0.03] border border-white/[0.06] rounded-xl md:rounded-2xl">
-                  <div className="flex items-start gap-2 md:gap-3">
-                    <FileText className="w-4 h-4 md:w-5 md:h-5 text-[#C30D0F] shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3 p-4 bg-white/90 border border-black/10 rounded-xl shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <FileText className="w-5 h-5 text-[#C30D0F] shrink-0 mt-0.5" />
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-[11px] md:text-xs font-semibold text-white">Background Study Guide</span>
-                      <span className="text-[9px] md:text-[10px] text-white/50">PDF Document</span>
+                      <span className="text-xs font-bold text-zinc-950">Background Study Guide</span>
+                      <span className="text-[10px] text-zinc-500 font-medium">Official PDF Document</span>
                     </div>
                   </div>
-                  <a href={committee.backgroundGuideUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-[#C30D0F] cursor-pointer rounded-full bg-white/[0.03] text-white border border-white/[0.1] hover:bg-white/[0.1] hover:border-white/[0.2] active:scale-[0.98] backdrop-blur-md px-3 md:px-4 py-2 text-[8px] md:text-[10px] w-full gap-1.5 md:gap-2 mt-1 md:mt-2">
-                    <Download className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                  <a
+                    href={committee.backgroundGuideUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 font-bold uppercase tracking-widest text-white bg-[#C30D0F] hover:bg-[#A30A0C] rounded-xl px-4 py-3 text-xs w-full transition-all shadow-md active:scale-[0.98]"
+                  >
+                    <Download className="w-3.5 h-3.5 text-white" />
                     Download PDF
                   </a>
                 </div>
 
-                <div className="flex flex-col gap-2 md:gap-3 mt-1 md:mt-2">
-                  <span className="text-[8px] md:text-2xs font-bold tracking-wider text-white/40 uppercase">
-                    Additional Reference Material
-                  </span>
-                  <div className="flex flex-col gap-1.5 md:gap-2.5">
-                    {committee.resources.map((res, idx) => (
-                      <a
-                        key={idx}
-                        href={res.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[11px] md:text-xs text-white/50 hover:text-[#C30D0F] transition-colors flex items-center gap-1.5"
-                      >
-                        <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#C30D0F]" />
-                        {res.title}
-                      </a>
-                    ))}
+                {committee.resources.length > 0 && (
+                  <div className="flex flex-col gap-2 pt-2">
+                    <span className="text-[10px] font-bold tracking-wider text-zinc-500 uppercase">
+                      Additional Reference Material
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      {committee.resources.map((res, idx) => (
+                        <a
+                          key={idx}
+                          href={res.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xs text-zinc-800 hover:text-[#C30D0F] font-semibold transition-colors flex items-center gap-2"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#C30D0F]" />
+                          {res.title}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
           </div>
         </div>
       </section>
+
+      <CTABanner />
     </div>
   );
 }
