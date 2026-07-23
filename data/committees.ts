@@ -2,6 +2,7 @@ export interface ExecutiveBoardMember {
   name: string;
   role: string;
   bio?: string;
+  image?: string;
 }
 
 export interface Committee {
