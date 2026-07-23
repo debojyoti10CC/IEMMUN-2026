@@ -101,6 +101,7 @@ export const committees: Committee[] = [
     agenda: "Evaluating Socio-Economic Reforms and State Resource Management",
     difficulty: "Advanced",
     image: "/Committees/WBLA.png",
+    cardBg: "/wbla-bg.jpg",
     type: "Offline",
     overview: "The West Bengal Legislative Assembly simulation brings regional politics, legislative debate, and resource allocation protocols into focus. Delegates will tackle contemporary state policies and legislative drafts.",
     detailedAgenda: "This committee focuses on structural economic reforms within West Bengal, analyzing resource distribution, rural agricultural modernization, industrialization policy, and federal financial devolution within the Union of India.",
