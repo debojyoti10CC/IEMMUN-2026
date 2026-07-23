@@ -123,6 +123,7 @@ export const committees: Committee[] = [
     agenda: "Navigating Coalition Governance and National Security Protocols",
     difficulty: "Advanced",
     image: "/Committees/KNESSET.png",
+    cardBg: "/knesset-bg.jpg",
     type: "Offline",
     overview: "Simulating the parliament of Israel, this committee deals with coalition mechanics, legislative voting blocks, and internal security challenges under high external tension.",
     detailedAgenda: "Delegates will analyze the internal political structures, emergency defense budgeting, and the legislative constraints of maintaining stability in Knesset coalition cabinets during diplomatic negotiations.",
