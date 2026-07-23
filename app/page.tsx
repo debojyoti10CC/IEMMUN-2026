@@ -69,15 +69,15 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7 flex flex-col items-start gap-5 md:gap-6">
-            <p className="text-sm md:text-lg text-white/80 leading-relaxed font-sans">
+            <p className="text-sm md:text-lg text-zinc-900 leading-relaxed font-sans font-medium">
               IEMMUN 2026 brings together the next generation of global leaders, policymakers, and scholars. Our conference is established as a premiere platform for high-level simulation, intellectual challenge, and constructive compromise.
             </p>
-            <p className="text-xs md:text-base text-white/50 leading-relaxed font-sans">
+            <p className="text-xs md:text-base text-zinc-700 leading-relaxed font-sans">
               For over half a decade, our summit has challenged delegates with complex crisis timelines, multi-lateral financial defaults, and sovereign security protocols. We emphasize academic research, precision speaking, and the complex art of international drafting.
             </p>
             <div className="mt-2 md:mt-4 flex gap-4 w-full md:w-auto">
               <Link href="/about" className="w-full md:w-auto">
-                <Button variant="outline" className="group gap-2 w-full md:w-auto text-xs md:text-xs">
+                <Button variant="outline" className="group gap-2 w-full md:w-auto text-xs md:text-xs border-black/20 text-zinc-900 hover:border-black/40 hover:bg-black/5">
                   Read Conference Mission
                   <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" />
                 </Button>
