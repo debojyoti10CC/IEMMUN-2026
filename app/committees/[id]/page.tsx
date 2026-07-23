@@ -154,11 +154,11 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
                 <UserCheck className="w-5 h-5 text-[#C30D0F]" />
                 Executive Board
               </h3>
-              <div className="flex flex-col gap-3.5 pt-1">
+              <div className="flex flex-col divide-y divide-black/10 pt-1">
                 {committee.executiveBoard.map((member, idx) => (
-                  <div key={idx} className="flex items-center gap-3.5 p-3 rounded-xl bg-white/80 border border-black/10 shadow-xs hover:border-[#C30D0F]/30 transition-all">
+                  <div key={idx} className="flex items-center gap-3.5 py-3 first:pt-0 last:pb-0">
                     {/* Small Executive Member Image / Avatar */}
-                    <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-[#C30D0F]/20 bg-zinc-100 flex-shrink-0 shadow-sm">
+                    <div className="relative w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden border border-black/10 bg-zinc-100 flex-shrink-0">
                       {member.image ? (
                         <Image
                           src={member.image}
@@ -167,7 +167,7 @@ export default async function CommitteeDetailPage({ params }: PageProps) {
                           className="object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#C30D0F]/10 via-zinc-200 to-zinc-300 text-zinc-800 font-bold text-sm md:text-base">
+                        <div className="w-full h-full flex items-center justify-center bg-zinc-200 text-zinc-800 font-bold text-xs md:text-sm">
                           {member.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                         </div>
                       )}
